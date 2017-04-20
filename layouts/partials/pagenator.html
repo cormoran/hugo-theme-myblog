@@ -1,0 +1,12 @@
+{{ if and .IsPage (or .PrevInSection .NextInSection)}}
+<nav class="pagenator row">
+    <div class="col-sm-6 text-left">
+        {{if .PrevInSection}}
+        <a href="{{.PrevInSection.RelPermalink}} ">&lt;{{.PrevInSection.Title}}</a> {{end}}
+    </div>
+    <div class="col-sm-6 text-right">
+        {{if .NextInSection}}
+        <a href="{{.NextInSection.RelPermalink}}">{{.NextInSection.Title}}&gt;</a> {{end}}
+    </div>
+</nav>
+{{ end }}

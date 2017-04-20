@@ -1,0 +1,16 @@
+{
+    "name": "cormoran-blog",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "node-sass --include-path scss static/scss/main.scss static/css/main.css",
+        "watch": "nodemon -e scss -x \"npm run build\""
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "node-sass": "^4.5.2",
+        "nodemon": "^1.11.0"
+    }
+}

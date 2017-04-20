@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    {{ partial "head.html" . }}
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            {{ partial "header.html" . }}
+        </header>
+
+        <div class="row">
+            <div class="col-sm-3">
+                {{ partial "side.html" . }}
+            </div>
+            <div class="col-sm-9 main">
+                {{ partial "pagenator.html" . }}
+                <article class="single">
+                    <header>
+                        <span class="entry-meta">
+	                            <time itemprop="datePublished" datetime="{{ .Date.Format "2006-01-02" }}">
+	                                {{ .Date.Format "2006年1月2日 15:04" }}
+	                            </time>
+	                        </span>
+                        <h1>{{.Title}}</h1>
+                    </header>
+                    <section class="entry" itemprop="entry-text">
+                        {{ .Content }}
+                    </section>
+                </article>
+                {{ partial "pagenator.html" . }}
+                <div>
+                    {{ partial "twitter.html" . }} {{ partial "googleplus.html" . }} {{ partial "facebook.html" . }}
+                </div>
+                {{ template "_internal/disqus.html" . }}
+            </div>
+        </div>
+
+        <footer>
+            {{ partial "footer.html" . }}
+        </footer>
+    </div>
+    {{ partial "foot.html" . }}
+</body>
+
+</html>
