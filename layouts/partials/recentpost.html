@@ -1,5 +1,7 @@
 <ul>
-    {{ range where .Site.Pages "Section" | first 5 }}
-    <li><a href="{{.RelPermalink}}">{{ .Title }}</a></li>
-    {{ end }}
+  {{ range where .Site.Pages.ByDate.Reverse "IsPage" true | first 5 }}
+  <li>
+    <a href="{{.RelPermalink}}">{{ .Title }} </a>
+  </li>
+  {{ end }}
 </ul>
