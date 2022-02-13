@@ -16,15 +16,28 @@
                 {{ partial "side.html" . }}
             </div>
             <div class="col-sm-9 main">
-                {{ partial "pagenator.html" . }}
+                <div class="row">
+                    <div class="col-xs-6">
+                        <span class="entry-meta">
+                            <time itemprop="datePublished" datetime="{{ .Date.Format "2006-01-02" }}">
+                                {{ .Date.Format "2006/1/2 15:04" }}
+                            </time>
+                        </span>
+                    </div>
+                    <div class="col-xs-6 text-right">
+                        <a href="{{ .Site.Params.changelog_url }}/{{ .File.Path }}">Change log</a>/
+                        <a href="{{ .Site.Params.report_url }}">Report issues</a>/
+                        <a href="{{ .Site.Params.edit_url }}/{{ .File.Path }}">Edit</a>
+                    </div>
+                    <hr>
+                </div>
+                <!-- {{ partial "pagenator.html" . }} -->
                 <article class="single">
                     <header>
-                        <span class="entry-meta">
-	                            <time itemprop="datePublished" datetime="{{ .Date.Format "2006-01-02" }}">
-	                                {{ .Date.Format "2006年1月2日 15:04" }}
-	                            </time>
-	                        </span>
                         <h1>{{.Title}}</h1>
+                        <div class="text-right">
+
+                        </div>
                     </header>
                     <section class="entry" itemprop="entry-text">
                         {{ .Content }}
@@ -32,9 +45,11 @@
                 </article>
                 {{ partial "pagenator.html" . }}
                 <div>
-                    {{ partial "twitter.html" . }} {{ partial "googleplus.html" . }} {{ partial "facebook.html" . }}
+                    {{ partial "twitter.html" . }}
+                    <!-- {{ partial "googleplus.html" . }} -->
+                    <!-- {{ partial "facebook.html" . }} -->
                 </div>
-                {{ template "_internal/disqus.html" . }}
+                <!-- {{ template "_internal/disqus.html" . }} -->
             </div>
         </div>
 
